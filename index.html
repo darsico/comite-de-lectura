@@ -5,24 +5,432 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
+    <style></style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Unna&display=swap" rel="stylesheet" />
+    <style>
+      .one-word-per-line {
+        word-spacing: fit-content;
+      }
+
+      .each-line {
+        width: min-intrinsic;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        display: table-caption;
+        display: -ms-grid;
+        -ms-grid-columns: min-content;
+      }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           fontFamily: {
             sans: ['Oswald', 'sans-serif'],
+            serif: ['Unna', 'serif'],
           },
         },
       };
     </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   </head>
   <body>
-    <header>
-      <img src="./assets/logo.png" alt="Logo de Comité de Lectura" />
-      <input type="search" name="search" id="search" placeholder="BUSCAR" class="text-md w-full rounded-md border border-black p-1 placeholder:text-black" />
+    <header class="fixed top-0 left-0 z-20 w-full">
+      <div class="container mx-auto grid w-full grid-cols-[1fr_7fr] gap-6 border-b-[1px] border-[#8B8888] bg-white px-2 pt-4 pb-6 md:px-0 md:pb-8">
+        <!-- Logo -->
+        <figure class="w-28 xl:w-32"><img src="./assets/logo.png" alt="Logo de Comité de Lectura" class="w-full" /></figure>
+        <!-- Logo end -->
+        <div class="flex items-center justify-end gap-4 lg:gap-6">
+          <div class="relative flex items-center justify-end w-full">
+            <input type="search" name="search" id="search" placeholder="BUSCAR" class="hidden w-full p-1 border border-black rounded-md text-md placeholder:text-black md:flex" />
+            <img src="./assets/icon-search.svg" alt="" class="absolute right-2" />
+          </div>
+          <div class="flex items-center justify-end gap-4">
+            <button class="rounded-md bg-[#E4013A] py-1 px-6 text-sm text-white lg:text-base">SUSCRÍBETE</button>
+            <a href="">
+              <figure class="w-[24px]"><img src="./assets/icon-user.svg" alt="" class="w-full" /></figure>
+            </a>
+            <a href="">
+              <figure class="w-[22px]"><img src="./assets/icon-menu.svg" alt="" class="w-full" /></figure>
+            </a>
+          </div>
+        </div>
+      </div>
     </header>
+    <nav class="fixed left-0 z-30 w-full mt-8 font-light top-20">
+      <div class="container mx-auto grid w-full grid-cols-[1.2fr_7fr] px-2 md:px-0 xl:grid-cols-[1fr_7fr]">
+        <div class="w-full border-r-[1px] border-[#8B8888] pb-52">
+          <div class="w-[85%]">
+            <ul class="flex flex-col w-full gap-2 pb-4">
+              <li class="w-full"><a href="">Podcasts</a></li>
+              <li><a href="">Videos</a></li>
+              <li><a href="">Columnas</a></li>
+              <li><a href="">Eventos</a></li>
+              <li><a href="">Noticias</a></li>
+              <li class="w-full">
+                <a href="" class="flex justify-between">Autores <img src="./assets/icon-lock.svg" alt="" /></a>
+              </li>
+            </ul>
+            <hr class="w-full border-[#8B8888]" />
+            <ul class="flex flex-col w-full gap-2 pt-4">
+              <li class=""><a href="" class="truncate">My Playlists</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="container relative m-auto grid grid-cols-[1fr_7fr] gap-6 pl-5 pt-28 first:border-r-2 first:border-black">
+      <section class="relative col-start-2 col-end-3 flex w-full flex-col gap-4 overflow-hidden text-[#2E2E2E]">
+        <div class="flex w-full items-center justify-center rounded-xl bg-[#EFEFEF] py-14">
+          <p class="uppercase">Espacio para banner promocional</p>
+        </div>
+        <div class="relative flex flex-col w-full gap-4 py-4">
+          <h2 class="text-xl">Podcasts Premium</h2>
+          <div class="swiper-container w-[400px]">
+            <div class="w-full swiper-wrapper">
+              <div class="swiper-slide min-w-[300px] max-w-[350px]">
+                <div class="rounded-xl bg-[#EFEFEF] p-4">
+                  <div class="flex justify-between mb-8 font-bold leading-4 tracking-tight">
+                    <p class="w-fit rounded-full bg-[#585858] py-1 px-4 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+                    <button class="flex w-fit items-center gap-1 rounded-full bg-[#C7A546] py-1 pl-3 pr-2 text-[0.68em] font-medium text-white">PREMIUM <img src="./assets/icon-lock-white.svg" alt="" /></button>
+                  </div>
+                  <h3 class="whitespace-wrap w-[80%] text-2xl font-medium leading-6 tracking-tight">EL PODCAST DE NOTICIAS DE AUGUSTO...</h3>
+                  <p class="py-4 font-serif text-sm leading-4">Ale Costa comenta la agenda de edición número 60 de CADE Ejecutivos, que empieza mañana en Paracas.</p>
+                  <div class="w-full">
+                    <img src="./assets/podcast-image.png" class="w-full" alt="" />
+                    <div class="p-4 -mt-4 bg-white rounded-lg shadow-lg w-fit"><img src="./assets/podcast-controls.png" alt="" /></div>
+                  </div>
+                  <hr class="my-3 w-full border-[#8B8888]" />
+                  <h4 class="text-[0.68em] font-bold uppercase">Augusto Townsend</h4>
+                </div>
+              </div>
+              <div class="swiper-slide min-w-[300px] max-w-[350px]">
+                <div class="rounded-xl bg-[#EFEFEF] p-4">
+                  <div class="flex justify-between mb-8 font-bold leading-4 tracking-tight">
+                    <p class="w-fit rounded-full bg-[#585858] py-1 px-4 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+                    <button class="flex w-fit items-center gap-1 rounded-full bg-[#C7A546] py-1 pl-3 pr-2 text-[0.68em] font-medium text-white">PREMIUM <img src="./assets/icon-lock-white.svg" alt="" /></button>
+                  </div>
+                  <h3 class="whitespace-wrap w-[80%] text-2xl font-medium leading-6 tracking-tight">EL PODCAST DE NOTICIAS DE AUGUSTO...</h3>
+                  <p class="py-4 font-serif text-sm leading-4">Ale Costa comenta la agenda de edición número 60 de CADE Ejecutivos, que empieza mañana en Paracas.</p>
+                  <div class="w-full">
+                    <img src="./assets/podcast-image.png" class="w-full" alt="" />
+                    <div class="p-4 -mt-4 bg-white rounded-lg shadow-lg w-fit"><img src="./assets/podcast-controls.png" alt="" /></div>
+                  </div>
+                  <hr class="my-3 w-full border-[#8B8888]" />
+                  <h4 class="text-[0.68em] font-bold uppercase">Augusto Townsend</h4>
+                </div>
+              </div>
+              <div class="swiper-slide min-w-[300px] max-w-[350px]">
+                <div class="rounded-xl bg-[#EFEFEF] p-4">
+                  <div class="flex justify-between mb-8 font-bold leading-4 tracking-tight">
+                    <p class="w-fit rounded-full bg-[#585858] py-1 px-4 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+                    <button class="flex w-fit items-center gap-1 rounded-full bg-[#C7A546] py-1 pl-3 pr-2 text-[0.68em] font-medium text-white">PREMIUM <img src="./assets/icon-lock-white.svg" alt="" /></button>
+                  </div>
+                  <h3 class="whitespace-wrap w-[80%] text-2xl font-medium leading-6 tracking-tight">EL PODCAST DE NOTICIAS DE AUGUSTO...</h3>
+                  <p class="py-4 font-serif text-sm leading-4">Ale Costa comenta la agenda de edición número 60 de CADE Ejecutivos, que empieza mañana en Paracas.</p>
+                  <div class="w-full">
+                    <img src="./assets/podcast-image.png" class="w-full" alt="" />
+                    <div class="p-4 -mt-4 bg-white rounded-lg shadow-lg w-fit"><img src="./assets/podcast-controls.png" alt="" /></div>
+                  </div>
+                  <hr class="my-3 w-full border-[#8B8888]" />
+                  <h4 class="text-[0.68em] font-bold uppercase">Augusto Townsend</h4>
+                </div>
+              </div>
+              <div class="swiper-slide min-w-[300px] max-w-[350px]">
+                <div class="rounded-xl bg-[#EFEFEF] p-4">
+                  <div class="flex justify-between mb-8 font-bold leading-4 tracking-tight">
+                    <p class="w-fit rounded-full bg-[#585858] py-1 px-4 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+                    <button class="flex w-fit items-center gap-1 rounded-full bg-[#C7A546] py-1 pl-3 pr-2 text-[0.68em] font-medium text-white">PREMIUM <img src="./assets/icon-lock-white.svg" alt="" /></button>
+                  </div>
+                  <h3 class="whitespace-wrap w-[80%] text-2xl font-medium leading-6 tracking-tight">EL PODCAST DE NOTICIAS DE AUGUSTO...</h3>
+                  <p class="py-4 font-serif text-sm leading-4">Ale Costa comenta la agenda de edición número 60 de CADE Ejecutivos, que empieza mañana en Paracas.</p>
+                  <div class="w-full">
+                    <img src="./assets/podcast-image.png" class="w-full" alt="" />
+                    <div class="p-4 -mt-4 bg-white rounded-lg shadow-lg w-fit"><img src="./assets/podcast-controls.png" alt="" /></div>
+                  </div>
+                  <hr class="my-3 w-full border-[#8B8888]" />
+                  <h4 class="text-[0.68em] font-bold uppercase">Augusto Townsend</h4>
+                </div>
+              </div>
+              <div class="swiper-slide min-w-[300px] max-w-[350px]">
+                <div class="rounded-xl bg-[#EFEFEF] p-4">
+                  <div class="flex justify-between mb-8 font-bold leading-4 tracking-tight">
+                    <p class="w-fit rounded-full bg-[#585858] py-1 px-4 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+                    <button class="flex w-fit items-center gap-1 rounded-full bg-[#C7A546] py-1 pl-3 pr-2 text-[0.68em] font-medium text-white">PREMIUM <img src="./assets/icon-lock-white.svg" alt="" /></button>
+                  </div>
+                  <h3 class="whitespace-wrap w-[80%] text-2xl font-medium leading-6 tracking-tight">EL PODCAST DE NOTICIAS DE AUGUSTO...</h3>
+                  <p class="py-4 font-serif text-sm leading-4">Ale Costa comenta la agenda de edición número 60 de CADE Ejecutivos, que empieza mañana en Paracas.</p>
+                  <div class="w-full">
+                    <img src="./assets/podcast-image.png" class="w-full" alt="" />
+                    <div class="p-4 -mt-4 bg-white rounded-lg shadow-lg w-fit"><img src="./assets/podcast-controls.png" alt="" /></div>
+                  </div>
+                  <hr class="my-3 w-full border-[#8B8888]" />
+                  <h4 class="text-[0.68em] font-bold uppercase">Augusto Townsend</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid w-full grid-cols-[1.2fr_1fr] border-t-[1px] border-[#8B8888] pt-8 text-[#2E2E2E] lg:grid-cols-[2fr_1fr]">
+          <!-- Blog type Cards Section -->
+          <section class="border-r-[1px] border-[#8B8888] pr-4 lg:pr-8">
+            <!-- Blog type Cards -->
+            <div>
+              <!-- Horizontal Blog Type Card -->
+              <div class="grid grid-cols-1 gap-5 border-b-[1px] border-[#8B8888] pt-8 pb-4 lg:grid-cols-2">
+                <div class="">
+                  <div class="flex gap-3 mb-3 font-bold leading-4 tracking-tight">
+                    <p class="w-fit rounded-full bg-[#585858] py-1 px-4 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+                    <p class="flex w-fit items-center gap-1 rounded-full bg-[#E4013A] py-1 pl-3 pr-3 text-[0.68em] font-medium text-white">VIDEO</p>
+                  </div>
+                  <h3 class="whitespace-wrap w-full text-2xl font-medium uppercase leading-7 tracking-tight text-[#2E2E2E] md:text-3xl md:leading-9 lg:w-[80%]">El golpe de castillo, el gabinete de boluarte y las protestas</h3>
+                  <p class="py-4 font-serif text-base leading-4">Ale Costa comenta la agenda de edición número 60 de CADE Ejecutivos, que empieza mañana en Paracas.</p>
+                  <h4 class="text-[0.68em] font-bold uppercase">Augusto Townsend</h4>
+                </div>
+                <img src="./assets/video-thumbnail.png" alt="" class="w-full rounded-lg" />
+              </div>
+              <!-- Horizontal Blog Type Card -->
+              <div class="grid grid-cols-1 gap-5 border-b-[1px] border-[#8B8888] pt-8 pb-4 lg:grid-cols-2">
+                <div class="">
+                  <div class="flex gap-3 mb-3 font-bold leading-4 tracking-tight">
+                    <p class="w-fit rounded-full bg-[#585858] py-1 px-4 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+                    <p class="flex w-fit items-center gap-1 rounded-full bg-[#E4013A] py-1 pl-3 pr-3 text-[0.68em] font-medium text-white">VIDEO</p>
+                  </div>
+                  <h3 class="whitespace-wrap w-full text-2xl font-medium uppercase leading-7 tracking-tight text-[#2E2E2E] md:text-3xl md:leading-9 lg:w-[80%]">El golpe de castillo, el gabinete de boluarte y las protestas</h3>
+                  <p class="py-4 font-serif text-base leading-4">Ale Costa comenta la agenda de edición número 60 de CADE Ejecutivos, que empieza mañana en Paracas.</p>
+                  <h4 class="text-[0.68em] font-bold uppercase">Augusto Townsend</h4>
+                </div>
+                <img src="./assets/video-thumbnail.png" alt="" class="w-full rounded-lg" />
+              </div>
+              <!-- Horizontal Blog Type Card -->
+              <div class="grid grid-cols-1 gap-5 border-b-[1px] border-[#8B8888] pt-8 pb-4 lg:grid-cols-2">
+                <div class="">
+                  <div class="flex gap-3 mb-3 font-bold leading-4 tracking-tight">
+                    <p class="w-fit rounded-full bg-[#585858] py-1 px-4 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+                    <p class="flex w-fit items-center gap-1 rounded-full bg-[#E4013A] py-1 pl-3 pr-3 text-[0.68em] font-medium text-white">VIDEO</p>
+                  </div>
+                  <h3 class="whitespace-wrap w-full text-2xl font-medium uppercase leading-7 tracking-tight text-[#2E2E2E] md:text-3xl md:leading-9 lg:w-[80%]">El golpe de castillo, el gabinete de boluarte y las protestas</h3>
+                  <p class="py-4 font-serif text-base leading-4">Ale Costa comenta la agenda de edición número 60 de CADE Ejecutivos, que empieza mañana en Paracas.</p>
+                  <h4 class="text-[0.68em] font-bold uppercase">Augusto Townsend</h4>
+                </div>
+                <img src="./assets/video-thumbnail.png" alt="" class="w-full rounded-lg" />
+              </div>
+              <!-- Horizontal Blog Type Card -->
+              <div class="grid grid-cols-1 gap-5 border-b-[1px] border-[#8B8888] pt-8 pb-4 lg:grid-cols-2">
+                <div class="">
+                  <div class="flex gap-3 mb-3 font-bold leading-4 tracking-tight">
+                    <p class="w-fit rounded-full bg-[#585858] py-1 px-4 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+                    <p class="flex w-fit items-center gap-1 rounded-full bg-[#E4013A] py-1 pl-3 pr-3 text-[0.68em] font-medium text-white">VIDEO</p>
+                  </div>
+                  <h3 class="whitespace-wrap w-full text-2xl font-medium uppercase leading-7 tracking-tight text-[#2E2E2E] md:text-3xl md:leading-9 lg:w-[80%]">El golpe de castillo, el gabinete de boluarte y las protestas</h3>
+                  <p class="py-4 font-serif text-base leading-4">Ale Costa comenta la agenda de edición número 60 de CADE Ejecutivos, que empieza mañana en Paracas.</p>
+                  <h4 class="text-[0.68em] font-bold uppercase">Augusto Townsend</h4>
+                </div>
+                <img src="./assets/video-thumbnail.png" alt="" class="w-full rounded-lg" />
+              </div>
+              <!-- Horizontal Blog Type Card -->
+              <div class="grid grid-cols-1 gap-5 border-b-[1px] border-[#8B8888] pt-8 pb-4 lg:grid-cols-2">
+                <div class="">
+                  <div class="flex gap-3 mb-3 font-bold leading-4 tracking-tight">
+                    <p class="w-fit rounded-full bg-[#585858] py-1 px-4 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+                    <p class="flex w-fit items-center gap-1 rounded-full bg-[#E4013A] py-1 pl-3 pr-3 text-[0.68em] font-medium text-white">VIDEO</p>
+                  </div>
+                  <h3 class="whitespace-wrap w-full text-2xl font-medium uppercase leading-7 tracking-tight text-[#2E2E2E] md:text-3xl md:leading-9 lg:w-[80%]">El golpe de castillo, el gabinete de boluarte y las protestas</h3>
+                  <p class="py-4 font-serif text-base leading-4">Ale Costa comenta la agenda de edición número 60 de CADE Ejecutivos, que empieza mañana en Paracas.</p>
+                  <h4 class="text-[0.68em] font-bold uppercase">Augusto Townsend</h4>
+                </div>
+                <img src="./assets/video-thumbnail.png" alt="" class="w-full rounded-lg" />
+              </div>
+            </div>
+            <!-- End Blog type Cards -->
+          </section>
+          <!-- End Blog type Cards Section -->
+          <aside class="flex flex-col pl-4 gap-14 lg:pl-8">
+            <!-- Todos los podcasts -->
+            <div>
+              <div class="flex items-center justify-between">
+                <h4 class="text-xl">Podcasts</h4>
+                <button class="rounded-lg border-2 border-[#2E2E2E] px-2 py-1 text-[0.68em] font-bold">VER TODOS</button>
+              </div>
+              <div class="flex flex-col pt-4">
+                <div class="grid grid-cols-1 gap-4 border-b-[1px] border-[#8B8888] py-6 md:grid-cols-[2fr_fit-content(50%)] lg:grid-cols-[1.5fr_1fr] lg:gap-4">
+                  <div class="flex flex-col gap-2">
+                    <p class="w-fit rounded-full bg-[#585858] py-1 px-3 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+                    <h3 class="whitespace-wrap w-full text-base font-medium uppercase leading-5 tracking-tight text-[#2E2E2E] md:text-lg md:leading-7">la abolición de la esclavitud en el perú</h3>
+                    <h4 class="text-[0.67em] font-bold uppercase tracking-wide">Augusto Townsend</h4>
+                  </div>
+                  <div class="relative flex items-center justify-center">
+                    <div class="relative md:h-28">
+                      <img src="./assets/author-image.png" alt="" class="object-cover rounded-full" />
+                      <img src="./assets/icon-audio.svg" alt="" class="absolute left-0 top-[75px]" />
+                    </div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 gap-4 border-b-[1px] border-[#8B8888] py-6 md:grid-cols-[2fr_fit-content(50%)] lg:grid-cols-[1.5fr_1fr] lg:gap-4">
+                  <div class="flex flex-col gap-2">
+                    <p class="w-fit rounded-full bg-[#585858] py-1 px-3 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+                    <h3 class="whitespace-wrap w-full text-base font-medium uppercase leading-5 tracking-tight text-[#2E2E2E] md:text-lg md:leading-7">la abolición de la esclavitud en el perú</h3>
+                    <h4 class="text-[0.67em] font-bold uppercase tracking-wide">Augusto Townsend</h4>
+                  </div>
+                  <div class="relative flex items-center justify-center">
+                    <div class="relative md:h-28">
+                      <img src="./assets/author-image.png" alt="" class="object-cover rounded-full" />
+                      <img src="./assets/icon-audio.svg" alt="" class="absolute left-0 top-[75px]" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Eventos -->
+            <div>
+              <div class="flex items-center justify-between">
+                <h4 class="text-xl">Eventos</h4>
+                <button class="rounded-lg border-2 border-[#2E2E2E] px-2 py-1 text-[0.68em] font-bold">VER TODOS</button>
+              </div>
+              <div class="flex flex-col justify-center w-full pt-4">
+                <div class="mx-auto">
+                  <div class="relative grid w-fit grid-cols-1 grid-rows-[fit-content_fit-content] items-center justify-center gap-4 rounded-xl border border-black px-4 py-5">
+                    <img src="./assets/event-image.png" alt="" class="object-cover w-full rounded-md h-52" />
+                    <div class="relative flex flex-col gap-2 w-fit">
+                      <p class="flex w-fit items-center gap-1 rounded-full bg-[#E4013A] py-1 pl-3 pr-3 text-[0.68em] font-medium text-white">VIDEO</p>
+                      <h3 class="whitespace-wrap w-fit text-lg font-medium uppercase leading-6 tracking-tight text-[#2E2E2E] md:text-xl md:leading-6">Argentina vuelve a soñar y el resumen de la 2da fecha</h3>
+                      <div class="font-serif text-lg">
+                        <p>
+                          Invitados:
+                          <span class="font-bold tracking-wide">Obama, Trump, Putin</span>
+                        </p>
+                        <p>
+                          Fecha:
+                          <span class="font-bold tracking-wide">14 diciembre 2022</span>
+                        </p>
+                        <p>
+                          Hora:
+                          <span class="font-bold tracking-wide">18:00 horas</span>
+                        </p>
+                      </div>
+                      <button class="mt-4 w-full rounded-full bg-[#232323] py-3 text-base uppercase text-white">Registrarme Aquí</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+          <!-- Ver mas Blog type Cards -->
+          <div class="flex justify-center w-full py-4">
+            <button class="mt-4 rounded-full bg-[#232323] py-3 px-20 text-base uppercase text-white">Ver Más</button>
+          </div>
+          <!-- End Ver mas Blog type Cards -->
+        </div>
+      </section>
+    </main>
+
+    <section class="z-50 w-full bg-[#EEEEEE]">
+      <div class="container mx-auto grid w-full grid-cols-[1.2fr_7fr] px-2 py-8 md:px-0 xl:grid-cols-[1fr_7fr]">
+        <div class="col-start-2 col-end-3 grid grid-cols-[1.2fr_1fr] lg:grid-cols-[2fr_1fr]">
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between w-full">
+              <h4 class="text-xl text-[#2E2E2E]">Autores</h4>
+              <button class="rounded-lg border-2 border-[#2E2E2E] px-2 py-1 text-[0.68em] font-bold">VER TODOS</button>
+            </div>
+            <div class="flex gap-8">
+              <div class="flex flex-col items-center justify-center one-word-per-line w-fit">
+                <figure class="relative w-24">
+                  <img src="./assets/author-image.png" alt="" class="object-cover w-full rounded-full" />
+                </figure>
+                <h4 class="table-caption leading-5 text-center uppercase each-line">Augusto Townsend</h4>
+              </div>
+              <div class="flex flex-col items-center justify-center one-word-per-line w-fit">
+                <figure class="relative w-24">
+                  <img src="./assets/author-image.png" alt="" class="object-cover w-full rounded-full" />
+                </figure>
+                <h4 class="table-caption leading-5 text-center uppercase each-line">Augusto Townsend</h4>
+              </div>
+              <div class="flex flex-col items-center justify-center one-word-per-line w-fit">
+                <figure class="relative w-24">
+                  <img src="./assets/author-image.png" alt="" class="object-cover w-full rounded-full" />
+                </figure>
+                <h4 class="table-caption leading-5 text-center uppercase each-line">Augusto Townsend</h4>
+              </div>
+              <div class="flex flex-col items-center justify-center one-word-per-line w-fit">
+                <figure class="relative w-24">
+                  <img src="./assets/author-image.png" alt="" class="object-cover w-full rounded-full" />
+                </figure>
+                <h4 class="table-caption leading-5 text-center uppercase each-line">Augusto Townsend</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="w-full bg-[#303030]">
+      <div class="container mx-auto grid w-full grid-cols-[1.2fr_7fr] px-2 py-8 md:px-0 xl:grid-cols-[1fr_7fr]">
+        <div class="col-start-2 col-end-3 grid grid-cols-[1.2fr_1fr] lg:grid-cols-[2fr_1fr]">
+          <div class="grid grid-cols-4 gap-16 text-white">
+            <div class="">
+              <h6>Comité de Lectura</h6>
+              <ul>
+                <li>Nuestro Equipo</li>
+                <li>Contáctanos</li>
+              </ul>
+            </div>
+            <div class="">
+              <h6>Publicaciones</h6>
+              <ul>
+                <li>Podcasts</li>
+                <li>Noticias</li>
+                <li>Eventos</li>
+              </ul>
+            </div>
+            <div class="">
+              <h6>Transparencia</h6>
+              <ul>
+                <li>Términos y Condiciones</li>
+                <li>Políticas de Protección de Datos</li>
+              </ul>
+            </div>
+            <div class="">
+              <h6>Encuéntranos</h6>
+              <ul>
+                <li>facebook</li>
+                <li>twitter</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    //    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js';
+    //const swiperEl = document.querySelector('.swiper-container');
+    const swiper = new Swiper('.swiper-container', {
+      // Optional parameters
+      direction: 'horizontal',
+      // add breakpoints
+      slidesPerView: 1,
+      spaceBetween: 10,
+      breakpoints: {
+        320: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        // when window width is >= 480px
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        // when window width is >= 640px
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+      },
+    });
+  </script>
 </html>

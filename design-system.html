@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
- <script src="https://cdn.tailwindcss.com"></script>
- <script>
-  tailwind.config = {
-    theme: {
-      fontFamily: {
-        sans: ['Oswald', 'sans-serif'],
-      },
-    },
-  }
- </script>
- <title>Design System</title>
-</head>
-<body>
- <h1 class="uppercase text-[50px] font-bold">Título 1</h1>
- <h1 class="uppercase text-4xl font-bold">Título 2</h1>
- <h1 class="uppercase text-3xl font-bold">Título 3</h1>
- <h1 class="uppercase text-[50px] font-bold">Título 4</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            sans: ['Oswald', 'sans-serif'],
+          },
+        },
+      };
+    </script>
+    <title>Design System</title>
+  </head>
+  <body>
+    <div class="w-72">
+      <hr />
+      <h1 class="text-4xl">Buttons</h1>
+      <hr />
+      <h2 class="text-2xl">Primary Button</h2>
+      <button class="mt-4 w-full rounded-full bg-[#232323] py-3 text-base uppercase text-white">Button</button>
+      <h2 class="text-2xl">Secondary Button</h2>
+      <button class="rounded-lg border-2 border-[#2E2E2E] px-2 py-1 text-[0.68em] font-bold uppercase">VER TODOS</button>
+    </div>
+    <div class="w-1/2">
+      <hr />
+      <h1 class="text-4xl">Cards</h1>
+      <hr />
+      <h2 class="text-2xl">Horizontal Blog Card</h2>
+      <div class="grid grid-cols-1 gap-5 border-b-[1px] border-[#8B8888] pt-8 pb-4 lg:grid-cols-2">
+        <div class="">
+          <div class="flex gap-3 mb-3 font-bold leading-4 tracking-tight">
+            <p class="w-fit rounded-full bg-[#585858] py-1 px-4 text-[0.68em] font-medium text-white">03 DICIEMBRE 2022</p>
+            <p class="flex w-fit items-center gap-1 rounded-full bg-[#E4013A] py-1 pl-3 pr-3 text-[0.68em] font-medium text-white">VIDEO</p>
+          </div>
+          <h3 class="whitespace-wrap w-full text-2xl font-medium uppercase leading-7 tracking-tight text-[#2E2E2E] md:text-3xl md:leading-9 lg:w-[80%]">El golpe de castillo, el gabinete de boluarte y las protestas</h3>
+          <p class="py-4 font-serif text-base leading-4">Ale Costa comenta la agenda de edición número 60 de CADE Ejecutivos, que empieza mañana en Paracas.</p>
+          <h4 class="text-[0.68em] font-bold uppercase">Augusto Townsend</h4>
+        </div>
+        <img src="./assets/video-thumbnail.png" alt="" class="w-full rounded-lg" />
+      </div>
+    </div>
+  </body>
 </html>
