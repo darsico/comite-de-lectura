@@ -23,6 +23,34 @@
         display: -ms-grid;
         -ms-grid-columns: min-content;
       }
+      .side-nav {
+        transition: all 0.5s; 
+        border-right: solid 1px #8b8888;
+      }
+      .side-nav--scrolled {
+        border-color: transparent;
+      }
+      .side-nav--hidden {
+        opacity: 0;
+      }
+      .main-section {
+        grid-column: span 2;
+      }
+      @media (min-width: 768px) {
+        .main-section {
+          grid-column-start: 2;
+        }
+      }
+      
+      .main-section--expanded {
+        grid-column: span 2;
+      }
+      #side-nav-content {
+        transition: all 0.2s;
+      }
+      .side-nav-content--hidden {
+        
+      }
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -60,13 +88,14 @@
         </div>
       </div>
     </header>
-    <nav class="fixed left-0 z-30 w-full mt-8 font-light top-20">
-      <div class="container mx-auto grid w-full grid-cols-[1.2fr_7fr] px-2 md:px-0 xl:grid-cols-[1fr_7fr]">
-        <div class="w-full border-r-[1px] border-[#8B8888] pb-52">
-          <div class="w-[85%]">
+    <nav class="fixed left-0 z-30 w-full font-light pointer-events-none md:mt-8 top-[76px] md:top-20  ">
+      <div class="md:container mx-auto grid w-full grid-cols-[1fr_1fr] md:grid-cols-[1.2fr_7fr] md:px-0 xl:grid-cols-[1fr_7fr] relative">
+        <img  alt="" class="absolute left-3 p-2 border rounded-full pointer-events-auto top-2 border-[#8B8888] bg-white z-50 cursor-pointer" id="collapse">
+        <div class="relative left-0 w-full pt-16 pl-4 bg-white md:bg-transparent pb-52 side-nav">
+          <div class="w-[85%] pointer-events-auto " id="side-nav-content">
             <ul class="flex flex-col w-full gap-2 pb-4">
               <li class="w-full"><a href="">Podcasts</a></li>
-              <li><a href="">Videos</a></li>
+              <li><a href="./index.html">Videos</a></li>
               <li><a href="">Columnas</a></li>
               <li><a href="">Eventos</a></li>
               <li><a href="">Noticias</a></li>
@@ -82,8 +111,8 @@
         </div>
       </div>
     </nav>
-    <main class="container relative m-auto grid grid-cols-[1fr_7fr] gap-6 pl-5 pt-28 first:border-r-2 first:border-black">
-      <section class="relative col-start-2 col-end-3 flex w-full flex-col gap-4 overflow-hidden text-[#2E2E2E]">
+    <main class="container relative m-auto grid grid-cols-[1fr_7fr] gap-6 md:pl-5 md:pr-2 pt-28 first:border-r-2 first:border-black px-2 md:px-0">
+      <section class="relative  flex w-full flex-col gap-4 overflow-hidden text-[#2E2E2E] main-section " id="main-section">
         <div class="flex w-full items-center justify-center rounded-xl bg-[#EFEFEF] py-14">
           <p class="uppercase">Espacio para banner promocional</p>
         </div>
@@ -330,33 +359,33 @@
 
     <section class="z-50 w-full bg-[#EEEEEE]">
       <div class="container mx-auto grid w-full grid-cols-[1.2fr_7fr] px-2 py-8 md:px-0 xl:grid-cols-[1fr_7fr]">
-        <div class="col-start-2 col-end-3 grid grid-cols-[1.2fr_1fr] lg:grid-cols-[2fr_1fr]">
-          <div class="flex flex-col gap-4">
+        <div class="grid grid-cols-[1.2fr_1fr] md:col-start-2 md:col-end-3 lg:grid-cols-[2fr_1fr]">
+          <div class="flex flex-col col-span-2 gap-4 xl:col-start-1 xl:col-end-2">
             <div class="flex items-center justify-between w-full">
               <h4 class="text-xl text-[#2E2E2E]">Autores</h4>
               <button class="rounded-lg border-2 border-[#2E2E2E] px-2 py-1 text-[0.68em] font-bold">VER TODOS</button>
             </div>
-            <div class="flex gap-8">
-              <div class="flex flex-col items-center justify-center one-word-per-line w-fit">
-                <figure class="relative w-24">
+            <div class="grid grid-cols-3 p-4 gap-y-4 md:grid-cols-5 lg:grid-cols-6">
+              <div class="flex flex-col items-center justify-center gap-2 text-sm one-word-per-line w-fit justify-self-center md:text-base">
+                <figure class="relative w-18 md:w-24">
                   <img src="./assets/author-image.png" alt="" class="object-cover w-full rounded-full" />
                 </figure>
                 <h4 class="table-caption leading-5 text-center uppercase each-line">Augusto Townsend</h4>
               </div>
-              <div class="flex flex-col items-center justify-center one-word-per-line w-fit">
-                <figure class="relative w-24">
+              <div class="flex flex-col items-center justify-center gap-2 text-sm one-word-per-line w-fit justify-self-center md:text-base">
+                <figure class="relative w-18 md:w-24">
                   <img src="./assets/author-image.png" alt="" class="object-cover w-full rounded-full" />
                 </figure>
                 <h4 class="table-caption leading-5 text-center uppercase each-line">Augusto Townsend</h4>
               </div>
-              <div class="flex flex-col items-center justify-center one-word-per-line w-fit">
-                <figure class="relative w-24">
+              <div class="flex flex-col items-center justify-center gap-2 text-sm one-word-per-line w-fit justify-self-center md:text-base">
+                <figure class="relative w-18 md:w-24">
                   <img src="./assets/author-image.png" alt="" class="object-cover w-full rounded-full" />
                 </figure>
                 <h4 class="table-caption leading-5 text-center uppercase each-line">Augusto Townsend</h4>
               </div>
-              <div class="flex flex-col items-center justify-center one-word-per-line w-fit">
-                <figure class="relative w-24">
+              <div class="flex flex-col items-center justify-center gap-2 text-sm one-word-per-line w-fit justify-self-center md:text-base">
+                <figure class="relative w-18 md:w-24">
                   <img src="./assets/author-image.png" alt="" class="object-cover w-full rounded-full" />
                 </figure>
                 <h4 class="table-caption leading-5 text-center uppercase each-line">Augusto Townsend</h4>
@@ -367,37 +396,37 @@
       </div>
     </section>
 
-    <footer class="w-full bg-[#303030]">
+    <footer class="w-full bg-[#303030] footer" >
       <div class="container mx-auto grid w-full grid-cols-[1.2fr_7fr] px-2 py-8 md:px-0 xl:grid-cols-[1fr_7fr]">
         <div class="col-start-2 col-end-3 grid grid-cols-[1.2fr_1fr] lg:grid-cols-[2fr_1fr]">
-          <div class="grid grid-cols-4 gap-16 text-white">
-            <div class="">
-              <h6>Comité de Lectura</h6>
-              <ul>
-                <li>Nuestro Equipo</li>
-                <li>Contáctanos</li>
+          <div class="grid grid-cols-2 gap-16 text-white lg:grid-cols-4">
+            <div class="pointer-events-auto>
+              <h6 class="text-lg">Comité de Lectura</h6>
+              <ul class="text-sm font-light">
+                <li><a href="">Nuestro Equipo</a></li>
+                <li><a href="">Contáctanos</a></li>
               </ul>
             </div>
             <div class="">
-              <h6>Publicaciones</h6>
-              <ul>
-                <li>Podcasts</li>
-                <li>Noticias</li>
-                <li>Eventos</li>
+              <h6 class="text-lg">Publicaciones</h6>
+              <ul class="text-sm font-light">
+                <li><a href="">Podcasts</a></li>
+                <li><a href="">Noticias</a></li>
+                <li><a href="">Eventos</a></li>
               </ul>
             </div>
             <div class="">
-              <h6>Transparencia</h6>
-              <ul>
-                <li>Términos y Condiciones</li>
-                <li>Políticas de Protección de Datos</li>
+              <h6 class="text-lg">Transparencia</h6>
+              <ul class="text-sm font-light">
+                <li><a href="">Términos y Condiciones</a></li>
+                <li><a href="">Políticas de Protección de Datos</a></li>
               </ul>
             </div>
             <div class="">
-              <h6>Encuéntranos</h6>
-              <ul>
-                <li>facebook</li>
-                <li>twitter</li>
+              <h6 class="text-lg">Encuéntranos</h6>
+              <ul class="text-sm font-light">
+                <li><a href="">facebook</a></li>
+                <li><a href="">twitter </a></li>
               </ul>
             </div>
           </div>
@@ -405,6 +434,7 @@
       </div>
     </footer>
   </body>
+  <script src="./js/index.js" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script>
     //    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js';
