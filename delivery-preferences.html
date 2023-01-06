@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preferencias de envío</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Unna&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            sans: ['Oswald', 'sans-serif'],
+            serif: ['Unna', 'serif'],
+          },
+        },
+      };
+    </script>
+    <style>
+      #overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+      }
+
+      .overlay-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="overlay">
+      <div class="overlay-container container relative grid max-h-[90%] w-3/4 grid-cols-1 overflow-auto rounded-2xl bg-white md:grid-cols-[1fr_2fr] lg:max-w-5xl lg:grid-cols-2">
+        <img src="./assets/image-signup.png" alt="" class="object-cover w-full max-h-32 rounded-2xl md:min-h-full" />
+        <div class="static flex flex-col items-start justify-center px-6 py-4 overflow-clip md:relative md:py-6 lg:py-8 xl:px-10">
+          <img src="./assets/icon-close-button.svg" alt="" class="absolute cursor-pointer top-5 right-5" />
+          <h4 class="pb-4 text-2xl font-bold">Preferencias de envío</h4>
+          <div class="w-full">
+            <p class="border-b-[1px] border-[#8B8888] py-3 text-base font-normal tracking-wide">Elige al menos una forma de recibir nuestros contenidos</p>
+            <div>
+              <div class="w-full pt-3 pb-6">
+                <p class="text-xs font-normal">Además de tener acceso a todos nuestros contenidos desde nuestra web, puedes elegir cualquiera de estas opciones de envío</p>
+                <ul class="grid grid-cols-2 gap-6 py-8 text-sm">
+                  <li>
+                    <button class="flex w-full items-center justify-between rounded-lg border-[1px] border-[black] p-4">
+                      <div class="flex items-center gap-2">
+                        <p>Whatsapp</p>
+                      </div>
+                      <img src="./assets/icon-whatsapp.svg" alt="" />
+                    </button>
+                  </li>
+                  <li>
+                    <button class="flex w-full items-center justify-between rounded-lg border-[1px] bg-black p-4 text-white">
+                      <div class="flex items-center gap-2">
+                        <img src="./assets/icon-check.svg" alt="" />
+                        <p>Email</p>
+                      </div>
+                      <img src="./assets/icon-email.svg" alt="" />
+                    </button>
+                  </li>
+                  <li>
+                    <button class="flex w-full items-center justify-between rounded-lg border-[1px] border-[black] p-4">
+                      <div class="flex items-center gap-2">
+                        <p>Apple Podcast</p>
+                      </div>
+                      <img src="./assets/icon-apple-podcast.svg" alt="" />
+                    </button>
+                  </li>
+                  <li>
+                    <button class="flex w-full items-center justify-between rounded-lg border-[1px] border-[black] p-4">
+                      <div class="flex items-center gap-2">
+                        <p>Google Podcast</p>
+                      </div>
+                      <img src="./assets/icon-google-podcast.svg" alt="" />
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <button type="submit" class="mt-6 w-full rounded-md bg-[#2F9300] py-2 font-sans font-medium tracking-wide text-white">Confirmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

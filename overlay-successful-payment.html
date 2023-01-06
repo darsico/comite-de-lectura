@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overlay successful payment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Unna&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            sans: ['Oswald', 'sans-serif'],
+            serif: ['Unna', 'serif'],
+          },
+        },
+      };
+    </script>
+    <style>
+      #overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+      }
+
+      .overlay-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="overlay">
+      <div class="overlay-container container relative grid max-h-[90%] w-3/4 grid-cols-1 overflow-auto rounded-2xl bg-white md:grid-cols-[1fr_2fr] lg:max-w-5xl lg:grid-cols-2">
+        <img src="./assets/image-signup.png" alt="" class="object-cover w-full max-h-32 rounded-2xl md:min-h-full" />
+        <div class="static flex flex-col items-start justify-center px-6 py-4 overflow-clip md:relative md:py-6 lg:py-8 xl:px-10">
+          <img src="./assets/icon-close-button.svg" alt="" class="absolute cursor-pointer top-5 right-5" />
+          <h4 class="pb-4 text-2xl font-bold">¡Pago exitoso!</h4>
+          <div class="w-full">
+            <p class="border-b-[1px] border-[#8B8888] py-3 text-base font-light tracking-wide">Añade tus beneficiarios</p>
+            <div>
+              <div class="w-full border-b-[1px] border-[#8B8888] pt-3 pb-6">
+                <p class="text-xs font-medium">Tienes la posibilidad de añadir hasta 4 personas</p>
+                <button type="submit" class="my-2 mt-10 w-full rounded-md bg-[#2F9300] py-2 font-sans font-normal tracking-wide text-white">Prefiero hacerlo después</button>
+                <ul class="flex gap-6 py-5 text-sm">
+                  <li class="pb-1 border-b-2 border-black">Beneficiario 1</li>
+                  <li class="pb-1">Beneficiario 2</li>
+                  <li class="pb-1">Beneficiario 3</li>
+                  <li class="pb-1">Beneficiario 4</li>
+                </ul>
+                <form action="" class="flex flex-col w-full gap-4">
+                  <div class="flex gap-3">
+                    <div class="flex flex-col w-full">
+                      <label for="" class="pb-1 text-sm">Nombre</label>
+                      <input type="text" class="p-1 border rounded-lg" />
+                    </div>
+                    <div class="flex flex-col w-full">
+                      <label for="" class="pb-1 text-sm">Apellidos</label>
+                      <input type="text" class="p-1 border rounded-lg" />
+                    </div>
+                  </div>
+                  <div class="flex flex-col w-full">
+                    <label for="" class="pb-1 text-sm">Celular</label>
+                    <input type="number" class="p-1 border rounded-lg" />
+                  </div>
+                  <div class="flex flex-col w-full">
+                    <label for="" class="pb-1 text-sm">Correo electrónico</label>
+                    <input type="email" class="p-1 border rounded-lg" />
+                  </div>
+                </form>
+              </div>
+
+              <button type="submit" class="mt-6 w-full rounded-md bg-[#2F9300] py-2 font-sans font-medium tracking-wide text-white">Registrar beneficiarios</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

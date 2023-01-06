@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overlay planes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Unna&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            sans: ['Oswald', 'sans-serif'],
+            serif: ['Unna', 'serif'],
+          },
+        },
+      };
+    </script>
+    <style>
+      #overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+      }
+
+      .overlay-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="overlay">
+      <div class="overlay-container container relative grid max-h-[90%] w-3/4 grid-cols-1 overflow-auto rounded-2xl bg-white md:grid-cols-[1fr_2fr] lg:max-w-5xl lg:grid-cols-2">
+        <img src="./assets/image-signup.png" alt="" class="object-cover w-full max-h-32 rounded-2xl md:min-h-full" />
+        <div class="static flex flex-col items-start justify-center px-6 py-4 overflow-clip md:relative md:py-6 lg:py-8 xl:px-10">
+          <img src="./assets/icon-close-button.svg" alt="" class="absolute cursor-pointer top-5 right-5" />
+          <h4 class="pb-4 text-2xl font-bold">¡Creación de una cuenta exitosa!</h4>
+          <div class="w-full">
+            <p class="border-b-[1px] border-[#8B8888] py-3 text-sm font-light">Ahora confirma el plan de tu preferencia:</p>
+            <div>
+              <div class="w-full border-b-[1px] border-[#8B8888] pt-3 pb-6">
+                <div class="flex items-center gap-1">
+                  <h5 class="text-base font-medium">Personal</h5>
+                  <p class="pt-2 text-[0.6em] font-light">(Para 1 persona)</p>
+                </div>
+                <div class="flex flex-col gap-6 pt-2 uppercase">
+                  <div class="flex items-center justify-center gap-4">
+                    <button class="relative w-full rounded-lg border-[1px] border-[black] px-4 py-2">
+                      <p class="text-center text-[0.6em]">S/.<span class="text-lg">12 </span>x mes</p>
+                    </button>
+                    <button class="relative w-full rounded-lg border-[1px] bg-black px-4 py-2">
+                      <p class="text-center text-[0.6em] text-white">S/.<span class="text-lg">120 </span>x año</p>
+                      <p class="absolute -bottom-3 right-1 w-fit rounded-full bg-[#C7A546] px-2 py-[0.2rem] text-[0.65em] font-medium capitalize text-white">Ahorras 14%</p>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full border-b-[1px] border-[#8B8888] pt-3 pb-6">
+                <div class="flex items-center gap-1">
+                  <h5 class="text-base font-medium">Personal</h5>
+                  <p class="pt-2 text-[0.6em] font-light">(Para 1 persona)</p>
+                </div>
+                <div class="flex flex-col gap-6 pt-2 uppercase">
+                  <div class="flex items-center justify-center gap-4">
+                    <button class="relative w-full rounded-lg border-[1px] border-[black] px-4 py-2">
+                      <p class="text-center text-[0.6em]">S/.<span class="text-lg">12 </span>x mes</p>
+                    </button>
+                    <button class="relative w-full rounded-lg border-[1px] border-black px-4 py-2">
+                      <p class="text-center text-[0.6em]">S/.<span class="text-lg">120 </span>x año</p>
+                      <p class="absolute -bottom-3 right-1 w-fit rounded-full bg-[#C7A546] px-2 py-[0.2rem] text-[0.65em] font-light capitalize text-white">Ahorras 14%</p>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full border-b-[1px] border-[#8B8888] pt-3 pb-6">
+                <div class="flex items-center gap-1">
+                  <h5 class="text-base font-medium">Personal</h5>
+                  <p class="pt-2 text-[0.6em] font-light">(Para 1 persona)</p>
+                </div>
+                <div class="flex flex-col gap-6 pt-2 uppercase">
+                  <div class="flex items-center justify-center gap-4">
+                    <button class="relative w-full rounded-lg border-[1px] border-[black] px-4 py-2">
+                      <p class="text-center text-[0.6em]">S/.<span class="text-lg">12 </span>x mes</p>
+                    </button>
+                    <button class="relative w-full rounded-lg border-[1px] border-black px-4 py-2">
+                      <p class="text-center text-[0.6em]">S/.<span class="text-lg">120 </span>x año</p>
+                      <p class="absolute -bottom-3 right-1 w-fit rounded-full bg-[#C7A546] px-2 py-[0.2rem] text-[0.65em] font-light capitalize text-white">Ahorras 14%</p>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="mt-10 w-full rounded-md bg-[#2F9300] py-2 font-sans font-normal tracking-wide text-white">Iniciar tu prueba</button>
+              <p class="pt-1 text-center text-xs font-light text-[#2E2E2E]">Cancélalo cuando quieras</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
