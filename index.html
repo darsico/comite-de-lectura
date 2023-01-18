@@ -10,6 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Unna&display=swap" rel="stylesheet" />
     <style>
+      .input[type='search']::-webkit-search-decoration,
+      input[type='search']::-webkit-search-cancel-button,
+      input[type='search']::-webkit-search-results-button,
+      input[type='search']::-webkit-search-results-decoration {
+        -webkit-appearance: none;
+      }
       .one-word-per-line {
         word-spacing: fit-content;
       }
@@ -82,17 +88,41 @@
             <a href="">
               <figure class="w-[24px]"><img src="./assets/icon-user.svg" alt="" class="w-full" /></figure>
             </a>
-            <!-- <a href="">
+            <button id="menu-btn" class="md:hidden">
               <figure class="w-[22px]"><img src="./assets/icon-menu.svg" alt="" class="w-full" /></figure>
-            </a> -->
+            </button>
           </div>
         </div>
       </div>
     </header>
-    <nav class="pointer-events-none fixed left-0 top-[76px] z-30 w-full font-light md:top-20 md:mt-8">
+    <div class="fixed left-0 top-0 z-[100] hidden h-full w-full md:hidden" id="menu-ctn">
+      <div class="pointer-events-auto relative z-[120] flex h-full w-[85%] flex-col gap-6 bg-white px-4 py-6">
+        <img src="./assets/icon-close.svg" alt="" class="absolute right-4 top-4 w-[30px] cursor-pointer" id="menu-close-btn" />
+        <div class="flex flex-col gap-2">
+          <figure class="w-[36px]"><img src="./assets/icon-user.svg" alt="" class="w-full" /></figure>
+          <p>Nombre Apellido</p>
+        </div>
+        <ul class="flex flex-col w-full gap-2 pb-4">
+          <li class="w-full"><a href="">Podcasts</a></li>
+          <li><a href="./index.html">Videos</a></li>
+          <li><a href="">Columnas</a></li>
+          <li><a href="">Eventos</a></li>
+          <li><a href="">Noticias</a></li>
+          <li class="w-full">
+            <a href="" class="flex justify-between">Autores <img src="./assets/icon-lock.svg" alt="" /></a>
+          </li>
+        </ul>
+        <hr class="w-full border-[#8B8888]" />
+        <ul class="flex flex-col w-full gap-2 pt-4">
+          <li class=""><a href="" class="truncate">My Playlists</a></li>
+        </ul>
+      </div>
+      <div class="absolute top-0 left-0 h-screen w-screen cursor-pointer bg-[#00000046]" id="out-layer"></div>
+    </div>
+    <nav class="pointer-events-none fixed left-0 top-[76px] z-30 hidden w-full font-light md:top-20 md:mt-8 md:flex">
       <div class="relative mx-auto grid w-full grid-cols-[1fr_1fr] md:container md:grid-cols-[1.2fr_7fr] md:px-0 xl:grid-cols-[1fr_7fr]">
-        <img alt="" class="pointer-events-auto absolute left-3 top-2 z-50 cursor-pointer rounded-full border border-[#8B8888] bg-white p-2" id="collapse" />
-        <div class="relative left-0 w-full pt-16 pl-4 bg-white side-nav pb-52 md:bg-transparent">
+        <!-- <img alt="" class="pointer-events-auto absolute left-3 top-2 z-50 cursor-pointer rounded-full border border-[#8B8888] bg-white p-2" id="collapse" /> -->
+        <div class="relative left-0 w-full pl-4 bg-white side-nav pb-52 md:bg-transparent">
           <div class="pointer-events-auto w-[85%]" id="side-nav-content">
             <ul class="flex flex-col w-full gap-2 pb-4">
               <li class="w-full"><a href="">Podcasts</a></li>
@@ -382,35 +412,35 @@
       </section>
     </main>
 
-    <section class="z-50 w-full bg-[#EEEEEE]">
-      <div class="container mx-auto grid w-full grid-cols-[1.2fr_7fr] px-2 py-8 md:px-0 xl:grid-cols-[1fr_7fr]">
+    <section class="z-50 w-full">
+      <div class="container mx-auto grid w-full grid-cols-[1.2fr_7fr] gap-6 px-2 py-8 md:px-0 xl:grid-cols-[1fr_7fr]">
         <div class="grid grid-cols-[1.2fr_1fr] md:col-start-2 md:col-end-3 lg:grid-cols-[2fr_1fr]">
-          <div class="flex flex-col col-span-2 gap-4 xl:col-start-1 xl:col-end-2">
+          <div class="col-span-2 flex flex-col gap-4 bg-[#EEEEEE] px-10 py-8 xl:col-start-1 xl:col-end-2">
             <div class="flex items-center justify-between w-full">
               <h4 class="text-xl text-[#2E2E2E]">Autores</h4>
               <button class="rounded-lg border-2 border-[#2E2E2E] px-2 py-1 text-[0.68em] font-bold">VER TODOS</button>
             </div>
-            <div class="grid grid-cols-3 p-4 gap-y-4 md:grid-cols-5 lg:grid-cols-6">
+            <div class="grid grid-cols-3 gap-10 p-4 md:grid-cols-5 lg:grid-cols-6">
               <a href="" class="flex flex-col items-center justify-center gap-2 text-sm one-word-per-line w-fit justify-self-center md:text-base">
-                <figure class="relative w-18 md:w-24">
+                <figure class="relative w-18">
                   <img src="./assets/author-image.png" alt="" class="object-cover w-full rounded-full" />
                 </figure>
                 <h4 class="table-caption leading-5 text-center uppercase each-line">Augusto Townsend</h4>
               </a>
               <a href="" class="flex flex-col items-center justify-center gap-2 text-sm one-word-per-line w-fit justify-self-center md:text-base">
-                <figure class="relative w-18 md:w-24">
+                <figure class="relative w-18">
                   <img src="./assets/author-image.png" alt="" class="object-cover w-full rounded-full" />
                 </figure>
                 <h4 class="table-caption leading-5 text-center uppercase each-line">Augusto Townsend</h4>
               </a>
               <a href="" class="flex flex-col items-center justify-center gap-2 text-sm one-word-per-line w-fit justify-self-center md:text-base">
-                <figure class="relative w-18 md:w-24">
+                <figure class="relative w-18">
                   <img src="./assets/author-image.png" alt="" class="object-cover w-full rounded-full" />
                 </figure>
                 <h4 class="table-caption leading-5 text-center uppercase each-line">Augusto Townsend</h4>
               </a>
               <a href="" class="flex flex-col items-center justify-center gap-2 text-sm one-word-per-line w-fit justify-self-center md:text-base">
-                <figure class="relative w-18 md:w-24">
+                <figure class="relative w-18">
                   <img src="./assets/author-image.png" alt="" class="object-cover w-full rounded-full" />
                 </figure>
                 <h4 class="table-caption leading-5 text-center uppercase each-line">Augusto Townsend</h4>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio</title>
+    <style></style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Unna&display=swap" rel="stylesheet" />
+    <style>
+      .input[type='search']::-webkit-search-decoration,
+      input[type='search']::-webkit-search-cancel-button,
+      input[type='search']::-webkit-search-results-button,
+      input[type='search']::-webkit-search-results-decoration {
+        -webkit-appearance: none;
+      }
+      .one-word-per-line {
+        word-spacing: fit-content;
+      }
+
+      .each-line {
+        width: min-intrinsic;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        display: table-caption;
+        display: -ms-grid;
+        -ms-grid-columns: min-content;
+      }
+      .side-nav {
+        transition: all 0.5s;
+        border-right: solid 1px #8b8888;
+      }
+      .side-nav--scrolled {
+        border-color: transparent;
+      }
+      .side-nav--hidden {
+        opacity: 0;
+      }
+      .main-section {
+        grid-column: span 2;
+      }
+      @media (min-width: 768px) {
+        .main-section {
+          grid-column-start: 2;
+        }
+      }
+
+      .main-section--expanded {
+        grid-column: span 2;
+      }
+      #side-nav-content {
+        transition: all 0.2s;
+      }
+
+      [data-tab-content] {
+        display: none;
+      }
+
+      .active[data-tab-content] {
+        display: block;
+      }
+      .active[data-tab-target] {
+        border-bottom: solid 2px #e4013a;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            sans: ['Oswald', 'sans-serif'],
+            serif: ['Unna', 'serif'],
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  </head>
+  <body>
+    <header class="fixed top-0 left-0 z-20 w-full">
+      <div class="container mx-auto grid w-full grid-cols-[1fr_7fr] gap-6 border-b-[1px] border-[#8B8888] bg-white px-2 pt-4 pb-6 md:px-0 md:pb-8">
+        <!-- Logo -->
+        <a href="">
+          <figure class="w-28 xl:w-32"><img src="./assets/logo.png" alt="Logo de Comité de Lectura" class="w-full" /></figure>
+        </a>
+        <!-- Logo end -->
+        <div class="flex items-center justify-end gap-4 lg:gap-6">
+          <div class="relative flex items-center justify-end w-full">
+            <input type="search" name="search" id="search" placeholder="BUSCAR" class="hidden w-full p-1 border border-black rounded-md text-md placeholder:text-black md:flex" />
+            <img src="./assets/icon-search.svg" alt="" class="absolute right-2" />
+          </div>
+          <div class="flex items-center justify-end gap-4">
+            <button class="rounded-md bg-[#E4013A] py-1 px-6 text-sm text-white lg:text-base">SUSCRÍBETE</button>
+            <a href="">
+              <figure class="w-[24px]"><img src="./assets/icon-user.svg" alt="" class="w-full" /></figure>
+            </a>
+            <button id="menu-btn" class="md:hidden">
+              <figure class="w-[22px]"><img src="./assets/icon-menu.svg" alt="" class="w-full" /></figure>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="fixed left-0 top-0 z-[100] hidden h-full w-full md:hidden" id="menu-ctn">
+      <div class="pointer-events-auto relative z-[120] flex h-full w-[85%] flex-col gap-6 bg-white px-4 py-6">
+        <img src="./assets/icon-close.svg" alt="" class="absolute right-4 top-4 w-[30px] cursor-pointer" id="menu-close-btn" />
+        <div class="flex flex-col gap-2">
+          <figure class="w-[36px]"><img src="./assets/icon-user.svg" alt="" class="w-full" /></figure>
+          <p>Nombre Apellido</p>
+        </div>
+        <ul class="flex flex-col w-full gap-2 pb-4">
+          <li class="w-full"><a href="">Podcasts</a></li>
+          <li><a href="./index.html">Videos</a></li>
+          <li><a href="">Columnas</a></li>
+          <li><a href="">Eventos</a></li>
+          <li><a href="">Noticias</a></li>
+          <li class="w-full">
+            <a href="" class="flex justify-between">Autores <img src="./assets/icon-lock.svg" alt="" /></a>
+          </li>
+        </ul>
+        <hr class="w-full border-[#8B8888]" />
+        <ul class="flex flex-col w-full gap-2 pt-4">
+          <li class=""><a href="" class="truncate">My Playlists</a></li>
+        </ul>
+      </div>
+      <div class="absolute top-0 left-0 h-screen w-screen cursor-pointer bg-[#00000046]" id="out-layer"></div>
+    </div>
+    <nav class="pointer-events-none fixed left-0 top-[76px] z-30 hidden w-full font-light md:top-20 md:mt-8 md:flex">
+      <div class="relative mx-auto grid w-full grid-cols-[1fr_1fr] md:container md:grid-cols-[1.2fr_7fr] md:px-0 xl:grid-cols-[1fr_7fr]">
+        <!-- <img alt="" class="pointer-events-auto absolute left-3 top-2 z-50 cursor-pointer rounded-full border border-[#8B8888] bg-white p-2" id="collapse" /> -->
+        <div class="relative left-0 w-full pl-4 bg-white side-nav pb-52 md:bg-transparent">
+          <div class="pointer-events-auto w-[85%]" id="side-nav-content">
+            <ul class="flex flex-col w-full gap-2 pb-4">
+              <li class="w-full"><a href="">Podcasts</a></li>
+              <li><a href="./index.html">Videos</a></li>
+              <li><a href="">Columnas</a></li>
+              <li><a href="">Eventos</a></li>
+              <li><a href="">Noticias</a></li>
+              <li class="w-full">
+                <a href="" class="flex justify-between">Autores <img src="./assets/icon-lock.svg" alt="" /></a>
+              </li>
+            </ul>
+            <hr class="w-full border-[#8B8888]" />
+            <ul class="flex flex-col w-full gap-2 pt-4">
+              <li class=""><a href="" class="truncate">My Playlists</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="container relative m-auto grid grid-cols-[1fr_7fr] gap-6 px-2 pt-28 first:border-r-2 first:border-black md:px-0 md:pl-5 md:pr-2">
+      <section class="main-section relative flex w-full flex-col gap-4 overflow-hidden text-[#2E2E2E]" id="main-section">
+        <ul class="grid grid-cols-[fit-content(100%)_fit-content(100%)_fit-content(100%)] gap-y-4 gap-x-10 md:flex md:gap-y-0 md:gap-x-4">
+          <li class="cursor-pointer active w-fit md:px-1" data-tab-target="#account">Mi cuenta</li>
+          <li class="cursor-pointer w-fit md:px-1" data-tab-target="#preferences">Tus preferencias</li>
+          <li class="cursor-pointer w-fit md:px-1" data-tab-target="#authors">Autores que sigues</li>
+          <li class="cursor-pointer w-fit md:px-1" data-tab-target="#beneficiaries">Beneficiarios</li>
+          <li class="cursor-pointer w-fit md:px-1" data-tab-target="#orders">Pedidos</li>
+          <li class="cursor-pointer w-fit md:px-1" data-tab-target="#info">Información de la cuenta</li>
+          <li class="flex items-center gap-2 cursor-pointer md:px-1">Cerrar sesión <img src="./assets/icon-logout.png" alt="" class="w-5" /></li>
+        </ul>
+        <div class="min-h-screen active" data-tab-content id="account">
+          <p class="text-2xl">Mi cuenta</p>
+        </div>
+        <div class="min-h-screen" data-tab-content id="preferences">
+          <p class="text-2xl">Preferencias</p>
+          <div class="grid grid-cols-1 gap-4 py-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="preferences-ctn">
+            <!-- <label class="relative flex items-center justify-between pt-4 pb-4 pl-4 pr-2 text-xl border rounded-lg group">
+              Caja de herramientas para pensar en la política
+              <div class="scale-75">
+                <input type="checkbox" class="absolute w-full h-full -translate-x-1/2 rounded-md appearance-none cursor-pointer peer left-1/2" />
+                <span
+                  class="ml-4 flex h-10 w-16 flex-shrink-0 cursor-pointer items-center rounded-full bg-gray-300 p-1 duration-300 ease-in-out after:h-8 after:w-8 after:rounded-full after:bg-white after:shadow-md after:duration-300 group-hover:after:translate-x-1 peer-checked:bg-[#E4013A] peer-checked:after:translate-x-6"
+                ></span>
+              </div>
+            </label> -->
+          </div>
+        </div>
+        <div class="min-h-screen" data-tab-content id="authors">
+          <p class="text-2xl">Authors</p>
+          <div class="grid grid-cols-1 gap-x-10 gap-y-4 py-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="authors-ctn"></div>
+        </div>
+        <div class="min-h-screen" data-tab-content id="beneficiaries">
+          <p class="text-2xl">Beneficiarios</p>
+        </div>
+        <div class="min-h-screen" data-tab-content id="orders">
+          <p class="text-2xl">Pedidos</p>
+        </div>
+        <div class="min-h-screen" data-tab-content id="info">
+          <p class="text-2xl">Información de la cuenta</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer w-full bg-[#303030]">
+      <div class="container mx-auto grid w-full grid-cols-[1.2fr_7fr] px-2 py-8 md:px-0 xl:grid-cols-[1fr_7fr]">
+        <div class="col-start-2 col-end-3 grid grid-cols-[1.2fr_1fr] lg:grid-cols-[2fr_1fr]">
+          <div class="grid grid-cols-2 gap-16 text-white lg:grid-cols-4">
+            <div class="pointer-events-auto>
+            <h6 class="text-lg">Comité de Lectura</h6>
+            <ul class="text-sm font-light">
+              <li><a href="">Nuestro Equipo</a></li>
+              <li><a href="">Contáctanos</a></li>
+            </ul>
+          </div>
+          <div class="">
+            <h6 class="text-lg">Publicaciones</h6>
+            <ul class="text-sm font-light">
+              <li><a href="">Podcasts</a></li>
+              <li><a href="">Noticias</a></li>
+              <li><a href="">Eventos</a></li>
+            </ul>
+          </div>
+          <div class="">
+            <h6 class="text-lg">Transparencia</h6>
+            <ul class="text-sm font-light">
+              <li><a href="">Términos y Condiciones</a></li>
+              <li><a href="">Políticas de Protección de Datos</a></li>
+            </ul>
+          </div>
+          <div class="">
+            <h6 class="text-lg">Encuéntranos</h6>
+            <ul class="text-sm font-light">
+              <li><a href="">facebook</a></li>
+              <li><a href="">twitter </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="./js/index.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    //    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js';
+    //const swiperEl = document.querySelector('.swiper-container');
+    const swiper = new Swiper('.swiper-container', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+      // add breakpoints
+      slidesPerView: 1,
+      spaceBetween: 10,
+      breakpoints: {
+        320: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        // when window width is >= 480px
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        // when window width is >= 640px
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+      },
+    });
+  </script>
+  <script src="./js/user.js" type="module"></script>
+</html>
