@@ -86,9 +86,9 @@ tabs.forEach(tab => {
    tabContent.classList.remove('active')
   })
   tabs.forEach(tab => {
-   tab.classList.remove('active')
+   tab.classList.remove('border-b-2')
   })
-  tab.classList.add('active')
+  tab.classList.add('border-b-2')
   target.classList.add('active')
  })
 })

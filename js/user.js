@@ -5,8 +5,8 @@ const preferencesWrapper = document.getElementById('preferences-ctn');
 const authorsWrapper = document.getElementById('authors-ctn');
 
 const createAuthorPreference = (author) => {
- const authorPreference = document.createElement('div');
- authorPreference.innerHTML = `
+  const authorPreference = document.createElement('div');
+  authorPreference.innerHTML = `
  <div class="grid grid-cols-2 gap-4 py-6 md:grid-cols-[2fr_fit-content(50%)]  lg:gap-4 px-2">
  <div class="m-auto flex  flex-col gap-2 md:w-full place-items-start">
    <h3 class="whitespace-wrap w-full text-base font-medium uppercase leading-5 tracking-tight text-[#2E2E2E] md:text-lg md:leading-7">${author}</h3>
@@ -23,22 +23,22 @@ const createAuthorPreference = (author) => {
 </div>
  `;
 
- return authorPreference;
+  return authorPreference;
 }
 
 const createAuthorPreferences = (authors) => {
- authors.forEach(author => {
-  const authorPreference = createAuthorPreference(author);
-  authorsWrapper.appendChild(authorPreference);
- })
+  authors.forEach(author => {
+    const authorPreference = createAuthorPreference(author);
+    authorsWrapper.appendChild(authorPreference);
+  })
 }
 
 createAuthorPreferences(authors);
 
 const createPreference = (category) => {
- const preference = document.createElement('div');
+  const preference = document.createElement('div');
 
- preference.innerHTML = `
+  preference.innerHTML = `
  <label class="relative flex items-center justify-between pt-4 pb-4 pl-4 pr-2 text-xl border rounded-lg group">
  ${category}
  <div class="scale-75">
@@ -49,17 +49,47 @@ const createPreference = (category) => {
  </div>
 </label>
  `;
- return preference;
+  return preference;
 }
 
 
 const createPreferences = (categories) => {
- categories.forEach(category => {
-  const preference = createPreference(category);
-  preferencesWrapper.appendChild(preference);
- })
+  categories.forEach(category => {
+    const preference = createPreference(category);
+    preferencesWrapper.appendChild(preference);
+  })
 }
 
 
 createPreferences(preferences.categories);
 
+
+const preferenceTitleCtn = document.getElementById('preferences-title-ctn');
+const authorsTitleCtn = document.getElementById('authors-title-ctn');
+//on scroll fix the div to the top
+
+const changeClasses = (element, isAdded) => {
+  if (isAdded) {
+    element.classList.add('fixed');
+    element.classList.add('top-0');
+    element.classList.add('z-10');
+    element.classList.add('py-8');
+  } else {
+    element.classList.remove('fixed');
+    element.classList.remove('top-0');
+    element.classList.remove('z-10');
+    element.classList.remove('py-8');
+  }
+}
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 0) {
+    if (preferenceTitleCtn) changeClasses(preferenceTitleCtn, true);
+
+    if (authorsTitleCtn) changeClasses(authorsTitleCtn, true);
+  } else {
+    if (preferenceTitleCtn) changeClasses(preferenceTitleCtn, false);
+
+    if (authorsTitleCtn) changeClasses(authorsTitleCtn, false);
+  }
+})
